@@ -182,6 +182,24 @@ class SectionController extends Controller
 
         
     }
+    public function deleteGroups(Request $r){
+        $client = new Client();
+        $res = $client->request('GET',$this->uriBase, [
+            'headers'=>$this->headers
+        ]);
+        
+        $groups=json_decode($res->getBody());
+        
+
+        foreach($groups as $group){
+            $client = new Client();
+            $res = $client->request('DELETE',$this->uriBase.$group->personGroupId, [
+                'headers'=>$this->headers
+            ]);
+            echo $group->personGroupId." ".$res->getBody();
+        }
+        
+    }
 }
 
 

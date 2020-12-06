@@ -19,6 +19,7 @@ Route::post('createstudent','AttendeeController@createStudent');
 Route::post('createsection','SectionController@createSection');
 Route::post('addstudents','SectionController@addStudents');
 Route::post('identify','SectionController@recognize');
+Route::post('deletegroups','SectionController@deleteGroups');
 
 Route::get('store/{root}/{matricno}/{filename}', function ($root,$matricno, $filename)
 {
